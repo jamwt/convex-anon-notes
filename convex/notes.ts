@@ -1,7 +1,7 @@
 import { v } from "convex/values";
-import { mutation, query } from "./util";
+import { userMutation, userQuery } from "./util";
 
-export const createNote = mutation({
+export const createNote = userMutation({
   args: {
     note: v.string(),
   },
@@ -13,7 +13,7 @@ export const createNote = mutation({
   },
 });
 
-export const getNotes = query({
+export const getNotes = userQuery({
   args: {},
   handler: async (ctx) => {
     const notes = await ctx.db

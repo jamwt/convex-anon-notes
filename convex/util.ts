@@ -190,7 +190,7 @@ async function getUser(
 }
 
 // Custom functions which grab the best possible user information.
-export const query = customQuery(baseQuery, {
+export const userQuery = customQuery(baseQuery, {
   args: { ...SessionIdArg },
   input: async (ctx, { sessionId }) => {
     const user = await getUser(ctx, sessionId);
@@ -198,7 +198,7 @@ export const query = customQuery(baseQuery, {
   },
 });
 
-export const mutation = customMutation(baseMutation, {
+export const userMutation = customMutation(baseMutation, {
   args: { ...SessionIdArg },
   input: async (ctx, { sessionId }) => {
     const user = await getUser(ctx, sessionId);
